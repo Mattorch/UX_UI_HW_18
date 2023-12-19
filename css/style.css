@@ -90,15 +90,28 @@ footer ul li {
 
 .flexContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
     margin-top: 20px;
 }
 
 .flexChild {
     text-align: center;
     margin: 10px;
+    padding: 20px;
+    width: 30%; /* 33% width for each flex child with some margin */
+    box-sizing: border-box; /* Include padding and border in the box model */
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
+/* Responsive styles */
+@media (max-width: 600px) {
+    .flexChild {
+        width: 100%; /* Full width for smaller screens */
+    }
+}
 /* my work style below*/
 
 .myWork {
@@ -108,7 +121,11 @@ footer ul li {
 
 .workGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+        "project1-image project1-details"
+        "project2-image project2-details";
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-top: 20px;
 }
@@ -116,4 +133,21 @@ footer ul li {
 .project {
     text-align: center;
     margin: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .workGrid {
+        grid-template-areas: 
+            "project1-image"
+            "project1-details"
+            "project2-image"
+            "project2-details";
+        grid-template-columns: 1fr;
+    }
 }
